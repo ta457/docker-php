@@ -11,10 +11,11 @@ services:
       - ./src:/var/www/html
     ports:
       - "9000:9000"
+      - "5173:5173"
     networks:
       - php-app
   nginx:
-    image: nginx:stable-alpine
+    image: nginx:1.24.0
     ports:
       - "8088:80"
     volumes:
@@ -26,7 +27,7 @@ services:
     networks:
       - php-app
   mysql:
-    image: mysql:latest
+    image: mysql:8.0
     ports:
       - "3306:3306"
     volumes:
